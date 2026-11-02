@@ -4,9 +4,10 @@ from expenses import Expenses
 
 
 def main():
-    """Create the Expense Tracker Application."""
+    """Create the Expense Tracker Application and display its menu."""
     tracker = Expenses()
+    tracker.display_menu()
 
 
 if __name__ == '__main__':
-  main()
+    main()
