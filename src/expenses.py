@@ -15,8 +15,8 @@ class Expenses:
     _EXIT = '7'
 
     def __init__(self):
-        """Initialize Expenses object."""
-        print('I am the Expense Tracker! I am alive!')
+        """Initialize Expenses object with an empty expense list."""
+        self._expense_list = []
 
     def display_menu(self):
         """Print menu items to the console."""
@@ -35,7 +35,7 @@ class Expenses:
         print(f'\tYou entered: {menu_choice}')
         match menu_choice:
             case self._ADD: self.add_expense()
-            case self._SHOW: self.print_expenses()
+            case self._SHOW: self.print_expenses(self._expense_list)
             case self._FILTER: self.filter_expenses()
             case self._SAVE: self.save_expenses()
             case self._OPEN: self.open_expenses()
@@ -51,11 +51,18 @@ class Expenses:
 
     def add_expense(self):
         """Prompt the user for an expense and add it to the list."""
-        print('\tadd_expense() method called...')
+        expense = {}
+        expense['date'] = input('\tDate (YYYY-MM-DD): ')
+        expense['category'] = input('\tCategory: ')
+        expense['description'] = input('\tDescription: ')
+        expense['amount'] = float(input('\tAmount: '))
+        self._expense_list.append(expense)
+        print('\tExpense added.')
 
-    def print_expenses(self):
+    def print_expenses(self, expense_list):
         """Print a list of expenses to the console."""
-        print('\tprint_expenses() method called...')
+        for expense in expense_list:
+            print(f'\t{expense}')
 
     def filter_expenses(self):
         """Filter expenses by date range and/or category and print them."""
