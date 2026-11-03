@@ -1,4 +1,5 @@
 """Implements the Expense Tracker Application."""
+import sys
 
 
 class Expenses:
@@ -21,16 +22,44 @@ class Expenses:
 
     def process_menu_choice(self):
         """Process menu commands."""
-        # Prompt user for input
-        # Assign input string to variable
         menu_choice = input('\n\tEnter Command Number: ')
         print(f'\tYou entered: {menu_choice}')
-        # Is menu_choice a valid command?
-        # YES - Execute command
-        # NO - Display error message and try again
+        match menu_choice:
+            case '1': self.add_expense()
+            case '2': self.print_expenses()
+            case '3': self.filter_expenses()
+            case '4': self.save_expenses()
+            case '5': self.open_expenses()
+            case '6': self.export_expenses()
+            case '7': sys.exit()
+            case _: print(f'\tWARNING: {menu_choice} is an invalid command!')
 
     def start_application(self):
         """Display the menu and process commands until the user exits."""
         while True:
             self.display_menu()
             self.process_menu_choice()
+
+    def add_expense(self):
+        """Prompt the user for an expense and add it to the list."""
+        print('\tadd_expense() method called...')
+
+    def print_expenses(self):
+        """Print a list of expenses to the console."""
+        print('\tprint_expenses() method called...')
+
+    def filter_expenses(self):
+        """Filter expenses by date range and/or category and print them."""
+        print('\tfilter_expenses() method called...')
+
+    def save_expenses(self):
+        """Save the expense list to a JSON file."""
+        print('\tsave_expenses() method called...')
+
+    def open_expenses(self):
+        """Open a JSON file and replace the expense list with its contents."""
+        print('\topen_expenses() method called...')
+
+    def export_expenses(self):
+        """Export the expense list to a CSV file."""
+        print('\texport_expenses() method called...')
