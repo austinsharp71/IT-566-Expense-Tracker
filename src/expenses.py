@@ -5,6 +5,15 @@ import sys
 class Expenses:
     """A console-based Expense Tracker Application."""
 
+    # Menu Choice Constants
+    _ADD = '1'
+    _SHOW = '2'
+    _FILTER = '3'
+    _SAVE = '4'
+    _OPEN = '5'
+    _EXPORT = '6'
+    _EXIT = '7'
+
     def __init__(self):
         """Initialize Expenses object."""
         print('I am the Expense Tracker! I am alive!')
@@ -25,13 +34,13 @@ class Expenses:
         menu_choice = input('\n\tEnter Command Number: ')
         print(f'\tYou entered: {menu_choice}')
         match menu_choice:
-            case '1': self.add_expense()
-            case '2': self.print_expenses()
-            case '3': self.filter_expenses()
-            case '4': self.save_expenses()
-            case '5': self.open_expenses()
-            case '6': self.export_expenses()
-            case '7': sys.exit()
+            case self._ADD: self.add_expense()
+            case self._SHOW: self.print_expenses()
+            case self._FILTER: self.filter_expenses()
+            case self._SAVE: self.save_expenses()
+            case self._OPEN: self.open_expenses()
+            case self._EXPORT: self.export_expenses()
+            case self._EXIT: sys.exit()
             case _: print(f'\tWARNING: {menu_choice} is an invalid command!')
 
     def start_application(self):
