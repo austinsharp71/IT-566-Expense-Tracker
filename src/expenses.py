@@ -18,3 +18,13 @@ class Expenses:
         print('\t5. Open JSON Expense File')
         print('\t6. Export Expenses To CSV File')
         print('\t7. Exit')
+
+    def process_menu_choice(self):
+        """Process menu commands."""
+        # Prompt user for input
+        # Assign input string to variable
+        menu_choice = input('\n\tEnter Command Number: ')
+        print(f'\tYou entered: {menu_choice}')
+        # Is menu_choice a valid command?
+        # YES - Execute command
+        # NO - Display error message and try again
