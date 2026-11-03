@@ -7,7 +7,7 @@ class Expenses:
     def __init__(self):
         """Initialize Expenses object."""
         print('I am the Expense Tracker! I am alive!')
-        
+
     def display_menu(self):
         """Print menu items to the console."""
         print('\n\t\tExpense Tracker Menu\n')
@@ -28,3 +28,9 @@ class Expenses:
         # Is menu_choice a valid command?
         # YES - Execute command
         # NO - Display error message and try again
+
+    def start_application(self):
+        """Display the menu and process commands until the user exits."""
+        while True:
+            self.display_menu()
+            self.process_menu_choice()
