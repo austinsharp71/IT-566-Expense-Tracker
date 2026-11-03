@@ -4,10 +4,9 @@ from expenses import Expenses
 
 
 def main():
-    """Create the Expense Tracker Application and process one command."""
+    """Create and start the Expense Tracker Application."""
     tracker = Expenses()
-    tracker.display_menu()
-    tracker.process_menu_choice()
+    tracker.start_application()
 
 
 if __name__ == '__main__':
