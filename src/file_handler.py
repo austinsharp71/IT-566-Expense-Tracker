@@ -25,3 +25,16 @@ def save_json(filename, expense_list):
         print(f'\tSaved {filename}')
     except (OSError, Exception) as e:
         print(f'\tProblem saving file: {e}')
+
+
+def open_json(filename):
+    """Read a JSON file and return the expense list it contains."""
+    expense_list = []
+    try:
+        with open(get_file_path(filename), 'r') as f:
+            json_string = f.read()
+        expense_list = json.loads(json_string)
+        print(f'\tOpened {filename}')
+    except (OSError, Exception) as e:
+        print(f'\tProblem opening file: {e}')
+    return expense_list
