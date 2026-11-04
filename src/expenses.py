@@ -1,6 +1,8 @@
 """Implements the Expense Tracker Application."""
 import sys
 
+import file_handler
+
 
 class Expenses:
     """A console-based Expense Tracker Application."""
@@ -88,7 +90,8 @@ class Expenses:
 
     def save_expenses(self):
         """Save the expense list to a JSON file."""
-        print('\tsave_expenses() method called...')
+        filename = input('\tJSON File Name: ')
+        file_handler.save_json(filename, self._expense_list)
 
     def open_expenses(self):
         """Open a JSON file and replace the expense list with its contents."""
