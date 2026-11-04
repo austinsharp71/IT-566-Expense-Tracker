@@ -100,4 +100,5 @@ class Expenses:
 
     def export_expenses(self):
         """Export the expense list to a CSV file."""
-        print('\texport_expenses() method called...')
+        filename = input('\tCSV File Name: ')
+        file_handler.export_csv(filename, self._expense_list)
