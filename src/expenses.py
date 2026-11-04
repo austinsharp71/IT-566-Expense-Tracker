@@ -95,7 +95,8 @@ class Expenses:
 
     def open_expenses(self):
         """Open a JSON file and replace the expense list with its contents."""
-        print('\topen_expenses() method called...')
+        filename = input('\tJSON File Name: ')
+        self._expense_list = file_handler.open_json(filename)
 
     def export_expenses(self):
         """Export the expense list to a CSV file."""
