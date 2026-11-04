@@ -1,4 +1,5 @@
 """Saves, opens, and exports expense files."""
+import csv
 import json
 import os
 
@@ -38,3 +39,17 @@ def open_json(filename):
     except (OSError, Exception) as e:
         print(f'\tProblem opening file: {e}')
     return expense_list
+
+
+def export_csv(filename, expense_list):
+    """Write the expense list to a CSV file for Microsoft Excel."""
+    try:
+        # The csv package requires newline='' when opening the file
+        with open(get_file_path(filename), 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['Date', 'Category', 'Description', 'Amount'])
+            for expense in expense_list:
+                writer.writerow(expense.values())
+        print(f'\tExported {filename}')
+    except (OSError, Exception) as e:
+        print(f'\tProblem exporting file: {e}')
