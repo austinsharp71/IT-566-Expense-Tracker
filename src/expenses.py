@@ -66,7 +66,25 @@ class Expenses:
 
     def filter_expenses(self):
         """Filter expenses by date range and/or category and print them."""
-        print('\tfilter_expenses() method called...')
+        print('\tPress Enter to skip a filter.')
+        start_date = input('\tStart Date (YYYY-MM-DD): ')
+        end_date = input('\tEnd Date (YYYY-MM-DD): ')
+        category = input('\tCategory: ')
+
+        # Dates in YYYY-MM-DD format can be compared as strings
+        filtered_list = []
+        for expense in self._expense_list:
+            keep = True
+            if start_date != '' and expense['date'] < start_date:
+                keep = False
+            if end_date != '' and expense['date'] > end_date:
+                keep = False
+            if category != '' and expense['category'] != category:
+                keep = False
+            if keep:
+                filtered_list.append(expense)
+
+        self.print_expenses(filtered_list)
 
     def save_expenses(self):
         """Save the expense list to a JSON file."""
