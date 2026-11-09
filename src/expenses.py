@@ -1,4 +1,10 @@
-"""Implements the Expense Tracker Application."""
+"""Implements the Expense Tracker Application.
+
+Date: 1 November 2026
+Project: Expense Tracker
+Student: Your Name
+Class: IT-566: Computer Scripting Techniques
+"""
 import sys
 
 import file_handler
@@ -34,7 +40,6 @@ class Expenses:
     def process_menu_choice(self):
         """Process menu commands."""
         menu_choice = input('\n\tEnter Command Number: ')
-        print(f'\tYou entered: {menu_choice}')
         match menu_choice:
             case self._ADD: self.add_expense()
             case self._SHOW: self.print_expenses(self._expense_list)
@@ -44,12 +49,6 @@ class Expenses:
             case self._EXPORT: self.export_expenses()
             case self._EXIT: sys.exit()
             case _: print(f'\tWARNING: {menu_choice} is an invalid command!')
-
-    def start_application(self):
-        """Display the menu and process commands until the user exits."""
-        while True:
-            self.display_menu()
-            self.process_menu_choice()
 
     def add_expense(self):
         """Prompt the user for an expense and add it to the list."""
@@ -102,3 +101,9 @@ class Expenses:
         """Export the expense list to a CSV file."""
         filename = input('\tCSV File Name: ')
         file_handler.export_csv(filename, self._expense_list)
+
+    def start_application(self):
+        """Display the menu and process commands until the user exits."""
+        while True:
+            self.display_menu()
+            self.process_menu_choice()
