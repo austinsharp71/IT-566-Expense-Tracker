@@ -2,7 +2,7 @@
 
 Date: 1 November 2026
 Project: Expense Tracker
-Student: Your Name
+Student: Austin Sharp 
 Class: IT-566: Computer Scripting Techniques
 """
 import sys
